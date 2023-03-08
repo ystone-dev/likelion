@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+    <!-- CSS -->
+    <style>
+      .flex-container {
+        display: flex;
+        /* flex-direction: :row-reverse; */
+        justify-content: space-evenly;
+      }
+      .column {
+        flex-direction: column;
+        flex-direction: column-reverse;
+      }
+      .flex-item {
+        background: skyblue;
+        border: 3px solid royalblue;
+      }
+      .
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">아이템1</div>
+      <div class="flex-item">아이템2</div>
+      <div class="flex-item">아이템3</div>
+      <div class="flex-item">아이템4</div>
+    </div>
+
+    <div class="column">
+      <div class="flex-item">아이템1</div>
+      <div class="flex-item">아이템2</div>
+      <div class="flex-item">아이템3</div>
+      <div class="flex-item">아이템4</div>
+    </div>
+
+    <!-- JS -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>
