@@ -1,0 +1,114 @@
+body {
+  background-color: #eae8fe;
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+.ir_pm {
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+h1 {
+  background: url(/vending_machine/images/Logo_img.png) no-repeat center;
+  width: 386px;
+  height: 180px;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+.order {
+  background-color: #ffffff;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.img-item {
+  display: block;
+  width: 36px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.price-item {
+  display: block;
+  width: 70px;
+  height: 22px;
+  background-color: #6327fe;
+  color: #ffffff;
+  margin: 0 auto;
+  border-radius: 50px;
+  line-height: 22px;
+}
+
+.btn-item {
+  width: 94px;
+  height: 130px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.info-deposit,
+.input-deposit {
+  width: 200px;
+  height: 33px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.info-deposit {
+  background-color: #eae8fe;
+}
+.input-deposit {
+  border: 1px solid #bdbdbd;
+}
+
+.btn-money {
+  width: 95px;
+  height: 35px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.img-item-gain {
+  width: 18px;
+  height: 33px;
+}
+
+.btn-item-gain {
+}
+
+.budget {
+  background-color: #ffffff;
+  width: 360px;
+  height: 50px;
+}
+
+.info-budget {
+  background-color: #eae8fe;
+  width: 300px;
+  height: 30px;
+}
+
+.my-items {
+  background-color: #ffffff;
+  width: 360px;
+  height: 474px;
+}
+
+/* 획득 음료 보라창 300px 360px */
+.my-items-list {
+  background-color: #eae8fe;
+  width: 300px;
+  height: 360px;
+}
