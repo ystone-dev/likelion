@@ -1,11 +1,32 @@
 body {
   background-color: #eae8fe;
   margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
+strong {
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+main {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 68px;
+}
 ol,
 ul {
   list-style-type: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .ir_pm {
@@ -17,45 +38,81 @@ ul {
 }
 
 h1 {
-  background: url(/vending_machine/images/Logo_img.png) no-repeat center;
+  background: url(../images/Logo_img.png) no-repeat center;
   width: 386px;
   height: 180px;
   background-size: contain;
   margin: 0 auto;
 }
 
-.order {
+.wrapper {
   background-color: #ffffff;
+  width: 360px;
+  height: 545px;
+  padding: 31px 27px 28px;
+  box-sizing: border-box;
 }
 
-button {
-  background: none;
-  border: none;
+.item-order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
-.img-item {
+.item-card {
+  position: relative;
+  width: 94px;
+  height: 130px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 9px;
+}
+
+.selected-item .item-price::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 3px solid #6327fe;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.sold-out-item .item-price::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8) url(../images/Sold-out.png) no-repeat center /
+    57px 45px;
+  border-radius: 10px;
+}
+
+.item-img {
   display: block;
   width: 36px;
   height: 65px;
   margin: 0 auto;
+  margin-bottom: 6px;
 }
 
-.price-item {
+.item-price {
   display: block;
   width: 70px;
   height: 22px;
   background-color: #6327fe;
   color: #ffffff;
   margin: 0 auto;
+  margin-top: 7px;
   border-radius: 50px;
   line-height: 22px;
-}
-
-.btn-item {
-  width: 94px;
-  height: 130px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  font-size: 12px;
 }
 
 .info-deposit,
@@ -66,49 +123,213 @@ button {
   border-radius: 5px;
 }
 
-.info-deposit {
-  background-color: #eae8fe;
+.wrapper-deposit {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 0 0;
 }
+
+.info-deposit {
+  display: flex;
+  background-color: #eae8fe;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 33px;
+  font-size: 14px;
+}
+
+.info-deposit span {
+  margin-left: auto;
+}
+
+.wrapper-input {
+  display: flex;
+  gap: 12px;
+  margin: 11px auto;
+}
+
 .input-deposit {
   border: 1px solid #bdbdbd;
+  padding: 8px 10px;
+  font-size: 13px;
 }
 
 .btn-money {
-  width: 95px;
-  height: 35px;
+  width: 94px;
+  height: 33px;
+  line-height: 33px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 5px;
+  padding: 0;
+  font-size: 13px;
 }
 
-.img-item-gain {
+.wrapper-gain {
+  display: flex;
+  gap: 12px;
+}
+
+.wrapper-list,
+.purchase-list {
+  display: inline-block;
+  background-color: #eae8fe;
+  width: 200px;
+  height: 106px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px 18px 12px 12px;
+}
+
+.listed-item {
+  position: relative;
+  background-color: white;
+  width: 170px;
+  height: 46px;
+  padding: 6px 8px 7px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-align: left;
+  padding-left: 38px;
+  font-size: 9px;
+}
+
+.items-list:not(:first-child) {
+  margin-top: 6px;
+}
+
+.listed-item-img {
+  position: absolute;
+  top: 6px;
+  left: 10px;
   width: 18px;
   height: 33px;
+  line-height: 33px;
 }
 
-.btn-item-gain {
+.item-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn-gain {
+  background-color: #6327fe;
+  color: white;
+  width: 94px;
+  height: 106px;
+  border-radius: 5px;
+  font-size: 13px;
 }
 
 .budget {
+  position: relative;
+
   background-color: #ffffff;
   width: 360px;
   height: 50px;
 }
 
 .info-budget {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: #eae8fe;
   width: 300px;
   height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.my-items {
+.info-budget p {
+  display: flex;
+  margin: 0;
+  padding: 0 10px;
+}
+.info-budget span {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.wrapper-purchase {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #ffffff;
   width: 360px;
   height: 474px;
+  margin-top: 20px;
+  padding: 25px 27px 26px;
+  box-sizing: border-box;
 }
 
-/* 획득 음료 보라창 300px 360px */
-.my-items-list {
-  background-color: #eae8fe;
+.wrapper-purchase h2 {
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.purchase-list {
   width: 300px;
   height: 360px;
+  margin: 13px auto 6px;
+}
+
+.my-item {
+  width: 100%;
+}
+
+.payment {
+  margin: 0;
+  text-align: right;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+@media (max-width: 748px) {
+  body {
+    background-color: white;
+    width: 360px;
+    margin: 0 auto;
+  }
+
+  main {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 18px;
+  }
+
+  h1 {
+    width: 166px;
+    height: 71px;
+  }
+
+  section {
+    margin: 0 auto;
+  }
+  .wrapper {
+    height: auto;
+    padding: 0 27px;
+  }
+
+  .budget {
+    margin-top: 10px;
+  }
+
+  .wrapper-purchase {
+    margin-top: 5px;
+  }
 }
