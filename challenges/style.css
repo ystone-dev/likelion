@@ -150,9 +150,9 @@ img {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: #bd8fe8;
   border-radius: 50%;
   margin-right: 10px;
+  background-color: #bd8fe8;
 }
 
 .content-article li {
