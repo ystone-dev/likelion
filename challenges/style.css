@@ -13,21 +13,36 @@ h3,
 p,
 ul,
 strong {
-  margin: 0;
-  padding: 0;
+  margin: initial;
+  padding: initial;
   font-size: inherit;
   font-weight: inherit;
-}
-
-body {
-  background: #673399;
-  width: 1080px;
-  margin: 100px auto;
 }
 
 ul,
 li {
   list-style: none;
+}
+
+.section {
+  padding: 100px 0;
+  /* width: 1080px; */
+}
+
+.section_purple {
+  position: relative;
+  z-index: -999;
+  background-color: #673399;
+}
+
+.section_white {
+  background-color: seashell;
+  color: salmon;
+}
+
+.wrapper {
+  width: 1080px;
+  margin: 0 auto;
 }
 
 .header-title > strong {
@@ -109,7 +124,9 @@ h2 {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
   z-index: -1;
 }
 
@@ -134,7 +151,6 @@ img {
   flex-direction: column;
   gap: 32px;
   padding: 24px;
-  width: 74%;
   box-sizing: border-box;
 }
 
