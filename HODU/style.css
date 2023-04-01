@@ -21,29 +21,147 @@ a {
 
 button {
   all: unset;
+  cursor: pointer;
 }
 
 /*  */
 
+.wrapper {
+  /* max-width: 1920px; */
+}
+
 .header,
 .article,
 footer {
-  display: flex;
   padding: 0 320px;
 }
 
-.header,
-.article_1 {
+.header {
+  display: flex;
   background-color: #f2e9d8;
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.article_1 {
+  display: flex;
+  background-color: #f2e9d8;
+  justify-content: space-between;
 }
 
 .title {
+  object-fit: contain;
 }
 
 .header_nav {
   margin-left: auto;
 }
 
+.nav_links {
+  margin-right: 30px;
+}
+
 .main_btn {
-  cursor: pointer;
+  width: 140px;
+  height: 50px;
+  background-color: #d97652;
+  border-radius: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.main_title {
+  max-width: 737px;
+  padding-top: 200px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.main_content {
+  max-width: 439px;
+  margin-top: 40px;
+}
+
+.article_1 .main_btn {
+  margin-top: 40px;
+}
+
+.article_1 img {
+  max-width: 415px;
+}
+
+.article_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 110px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.article_2 img {
+  width: 660px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.article_2_content h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.article_2_content p {
+  margin-top: 30px;
+}
+
+.article_3 {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.article_3 h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #d97652;
+}
+
+.article_3 > p {
+  max-width: 739px;
+  margin: 40px auto;
+}
+
+.article_3 img {
+  width: 348px;
+  height: 348px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.article_3_img {
+  display: flex;
+  gap: 72px;
+  justify-content: center;
+}
+
+.article_3_content {
+  display: flex;
+  gap: 50px;
+  margin: 90px auto;
+  text-align: initial;
+}
+
+.article_3_content button {
+  flex-shrink: 0;
+}
+
+aside {
+  position: absolute;
+  max-width: 1280px;
+  max-height: 200px;
+  padding: 50px 58px;
+  background-color: #263140;
+  border-radius: 30px;
+  color: white;
+  box-sizing: border-box;
 }
