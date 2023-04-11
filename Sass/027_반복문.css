@@ -1,4 +1,3 @@
-/* $color-palette: #dad5d2 #3a3532 #375945 #5b8767 #a6c198 #dbdfc8; */
 .color-circle:nth-child(1) {
   background: #dad5d2;
   width: 20px;
@@ -39,6 +38,4 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-}
-
-/*# sourceMappingURL=027_반복문.css.map */
+}/*# sourceMappingURL=027_반복문.css.map */
