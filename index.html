@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input {
+        display: block;
+        width: 300px;
+        height: 30px;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        display: block;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+      }
+
+      textarea::placeholder {
+        font-size: 16px;
+      }
+
+      button {
+        display: block;
+        width: 306px;
+        height: 30px;
+      }
+    </style>
+    <title>Memo</title>
+  </head>
+  <body>
+    <form id="memo-form">
+      <label for="title" class="sr-only">제목:</label>
+      <input type="text" id="title" placeholder="제목을 적어주세요." required />
+      <label for="content" class="sr-only">내용:</label>
+      <textarea
+        name="content"
+        id="content"
+        cols="30"
+        rows="10"
+        placeholder="내용을 적어주세요."
+      ></textarea>
+      <button type="submit" id="memo-btn">저장</button>
+    </form>
+    <ul id="memo-list"></ul>
+
+    <script>
+      const memoForm = document.querySelector("#memo-form");
+      const memoTitle = document.querySelector("#memo-form input");
+      const memoContent = document.querySelector("#memo-form textarea");
+      const memoList = document.querySelector("#memo-list");
+      const memoBtn = document.querySelector("#memo-btn");
+
+      const MEMOS_KEY = "memos"; // 저장할 데이터의 키값 설정
+
+      let memos = [];
+
+      function saveMemos() {
+        localStorage.setItem(MEMOS_KEY, JSON.stringify(memos)); // memos 배열을 로컬스토리지에 문자열로 저장
+      }
+
+      function deleteMemo(event) {
+        const li = event.target.parentElement;
+        li.remove();
+        memos = memos.filter((memo) => memo.id !== parseInt(li.id)); // 삭제된 메모를 memos 배열에서도 삭제
+        saveMemos();
+      }
+
+      function paintMemo(newMemoTitle, newMemoContent) {
+        const li = document.createElement("li");
+        li.id = newMemoTitle.id;
+        const title = document.createElement("h2");
+        title.textContent = newMemoTitle.text;
+        const content = document.createElement("p");
+        content.textContent = newMemoContent.text;
+        const button = document.createElement("button");
+        button.textContent = "삭제";
+        button.addEventListener("click", deleteMemo);
+        memoList.append(li);
+        li.append(title, content, button);
+
+        memos.push({
+          title: newMemoTitle.text,
+          content: newMemoContent.text,
+          id: newMemoTitle.id,
+        }); // memos 배열에 새로운 메모 객체를 추가
+        saveMemos();
+      }
+
+      function handleMemoSubmit(event) {
+        event.preventDefault();
+        const newMemoTitleObj = {
+          text: memoTitle.value,
+          id: Date.now(),
+        };
+        const newMemoContentObj = {
+          text: memoContent.value,
+          id: Date.now(),
+        };
+        memoTitle.value = "";
+        memoContent.value = "";
+        paintMemo(newMemoTitleObj, newMemoContentObj);
+      }
+
+      memoBtn.addEventListener("click", handleMemoSubmit);
+
+      function loadMemos() {
+        const loadedMemos = localStorage.getItem(MEMOS_KEY);
+        if (loadedMemos !== null) {
+          const parsedMemos = JSON.parse(loadedMemos);
+          parsedMemos.forEach((memo) =>
+            paintMemo(
+              { text: memo.title, id: memo.id },
+              { text: memo.content, id: memo.id }
+            )
+          );
+        }
+      }
+
+      loadMemos(); // 페이지 로딩 시 저장된 메모들을 불러옴
+    </script>
+  </body>
+</html>
